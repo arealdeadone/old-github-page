@@ -1,5 +1,5 @@
-# Ignoring node_modules and bower_components
-# node_modules/
-# bower_components/
+# Ignoring node_modules and bower_components and other folders
+node_modules/
+bower_components/
 .idea/
 .sass-cache/
