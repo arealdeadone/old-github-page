@@ -8,7 +8,7 @@ $('main').scroll(function () {
     var wScroll = $(this).scrollTop();
 
     if(wScroll <= aboutHeight){
-        $('#aboutCard').css({
+        $('#about.mdl-card').css({
             'transform': 'translate(0px' + wScroll/4 + '%)'
         });
         // $('.wide-card').css({
@@ -48,7 +48,7 @@ $(document).ready(function () {
         .mouseleave(function () {
             $(this).parent().removeClass('shadows');
         });
-    $('.mdl-navigation__link, .to-top').click(function (e) {
+    $('.to-top').click(function (e) {
         if(this.hash !== ""){
             e.preventDefault();
             var hash = this.hash;

@@ -1,7 +1,8 @@
 <html>
 <head>
     <title>Travel Diaries</title>
-    <!--<script src="node_modules/npm-polymer-elements/webcomponentsjs/webcomponents.min.js"></script>-->
+    <script src="webcomponents/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="webcomponents/google-map/google-map.html">
     <!--<link rel="import" href="node_modules/npm-polymer-elements/paper-button/paper-button.html">-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -19,8 +20,8 @@
                     <a class="mdl-navigation__link" data-scroll href="#home">Home</a>
                     <a class="mdl-navigation__link" data-scroll href="#about">About Us</a>
                     <a class="mdl-navigation__link" href="packages.html">Packages</a>
-                    <a class="mdl-navigation__link" href="#">Portfolio</a>
-                    <a class="mdl-navigation__link" href="#">Contact Us</a>
+                    <!--<a class="mdl-navigation__link" href="#">Portfolio</a>-->
+                    <a class="mdl-navigation__link" href="#contact">Contact Us</a>
                 </nav>
             </div>
         </header>
@@ -31,11 +32,11 @@
                 <a class="mdl-navigation__link" data-scroll href="#home">Home</a>
                 <a class="mdl-navigation__link" data-scroll href="#about">About Us</a>
                 <a class="mdl-navigation__link" href="packages.html">Packages</a>
-                <a class="mdl-navigation__link" href="#">Portfolio</a>
-                <a class="mdl-navigation__link" href="#">Contact Us</a>
+                <!--<a class="mdl-navigation__link" href="#">Portfolio</a>-->
+                <a class="mdl-navigation__link" href="#contact">Contact Us</a>
             </nav>
         </div>
-        <main class="mdl-layout__content">
+        <main class="mdl-layout__content" data-spy="scroll" data-target=".mdl-navigation" data-offset="50">
             <div class="page-content">
                 <div id="home">
                     <!--Carousel Wrapper-->
@@ -92,19 +93,6 @@
                     <!--/.Carousel Wrapper-->
                 </div>
                 <div id="about" class="wide-card">
-                    <!--<div class="mdl-card mdl-shadow&#45;&#45;4dp mdl-color-blue-100" id="aboutCard">-->
-                        <!--<div class="mdl-card__title mdl-color&#45;&#45;indigo-500">-->
-                            <!--<div class="mdl-layout-spacer"></div>-->
-                            <!--<h2 class="mdl-card__title-text mdl-color-text&#45;&#45;white">ABOUT US</h2>-->
-                            <!--<div class="mdl-layout-spacer"></div>-->
-                        <!--</div>-->
-                        <!--<div class="mdl-card__supporting-text mdl-color&#45;&#45;blue-300">-->
-                            <!--<div class="mdl-layout-spacer"></div>-->
-                            <!---->
-                            <!--<div class="mdl-layout-spacer"></div>-->
-                            <!--<div class="mdl-cell&#45;&#45;1-col mdl-cell&#45;&#45;1-col-tablet"></div>-->
-                        <!--</div>-->
-                    <!--</div>-->
                     <div class="mdl-layout-spacer"></div>
                     <div class="mdl-grid">
                         <div class="mdl-cell--1-col mdl-cell--1-col-tablet"></div>
@@ -124,7 +112,7 @@
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aut cum dignissimos dolorem ea, enim esse est et facilis id itaque laudantium maxime nam numquam praesentium qui rem, tempore tenetur!
                             </div>
                             <div class="mdl-card__actions mdl-card--border">
-                                <button type="button" class="btn btn-outline-black waves-effect">
+                                <button type="button" class="btn btn-outline-black waves-effect show-modal">
                                     Read More About Our History
                                 </button>
                             </div>
@@ -149,6 +137,63 @@
                         TOP
                     </a>
                 </div>
+                <div id="contact" class="mdl-color--white">
+                    <div class="mdl-grid mdl-grid--no-spacing">
+                        <div class="mdl-cell--6-col">
+                            <div class="mdl-grid mdl-grid--no-spacing">
+                                <div class="mdl-cell--1-col"></div>
+                                <div class="mdl-cell--10-col text-center">
+                                    <h4>CONTACT US</h4>
+                                    <form action="#" method="post">
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                            <input class="mdl-textfield__input" type="text" id="Name" name="Name">
+                                            <label class="mdl-textfield__label" for="Name">Your Name</label>
+                                        </div>
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                            <input class="mdl-textfield__input" type="email" id="Email" name="Email">
+                                            <label class="mdl-textfield__label" for="Email">Your Email</label>
+                                        </div>
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                            <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="phn">
+                                            <label class="mdl-textfield__label" for="phn">Contact Number</label>
+                                            <span class="mdl-textfield__error">Input is not a number!</span>
+                                        </div>
+                                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                            <textarea class="mdl-textfield__input" id="message" name="message" rows="3"></textarea>
+                                            <label class="mdl-textfield__label" for="message">Your Message Here</label>
+                                        </div>
+                                        <div class="mdl-textfield">
+                                            <button class="btn btn-amber waves-effect" type="button" id="csub">Contact Me</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="mdl-cell--1-col"></div>
+                            </div>
+                        </div>
+                        <div class="mdl-cell--6-col">
+                            <google-map fit-to-marker api-key="AIzaSyADtT7k2puxNm26Wn8EZlluVFxnJ-6uoSA" latitude="28.5727500" longitude="77.1643090" zoom="17">
+                                <google-map-marker latitude="28.5727500" longitude="77.1643090" draggable="true"></google-map-marker>
+                            </google-map>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <dialog class="mdl-dialog" id="history">
+                <div class="mdl-dialog__content">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae exercitationem ipsam minus modi necessitatibus quas qui sapiente. Architecto autem explicabo minima nemo obcaecati suscipit temporibus velit! Dignissimos perferendis provident voluptatem?
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad animi, asperiores aspernatur aut dicta dignissimos doloribus ducimus ea eius labore neque nesciunt nihil nobis numquam omnis quasi veritatis voluptatibus voluptatum.
+                    </p>
+                </div>
+                <div class="mdl-dialog__actions">
+                    <button class="btn btn-outline-black waves-effect d-close">Close</button>
+                </div>
+            </dialog>
+            <div id="formMessage" class="mdl-js-snackbar mdl-snackbar">
+                <div class="mdl-snackbar__text"></div>
+                <button class="mdl-snackbar__action" type="button"><i class="material-icons">close</i> </button>
             </div>
         </main>
     </div>
@@ -159,5 +204,34 @@
     <script src="js/material.min.js"></script>
     <script src="js/jquery.nicescroll.min.js"></script>
     <script src="js/utilities.js"></script>
+    <script>
+        (function () {
+            'use strict';
+            var dialog = document.querySelector('#history');
+            var showModalButton = document.querySelector('.show-modal');
+            if(!dialog.showModal){
+                dialogPolyfill.registerDialog(dialog);
+            }
+            showModalButton.addEventListener('click', function () {
+                dialog.showModal();
+            });
+            dialog.querySelector('.d-close').addEventListener('click', function () {
+                dialog.close();
+            })
+        }());
+        (function () {
+            'use strict';
+            var msg = document.querySelector('#formMessage');
+            var trigBtn = document.querySelector('#csub');
+            trigBtn.addEventListener('click', function () {
+                'use strict';
+                var data = {
+                    message: 'Thank you for reaching out to us. We will get back to you shortly',
+                    timeout: 2500
+                };
+                msg.MaterialSnackbar.showSnackbar(data);
+            })
+        }());
+    </script>
 </body>
 </html>

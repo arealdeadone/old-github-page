@@ -54,4 +54,18 @@ header {
     border-bottom: 2px solid #FFFFFF;
     color: #282828; }
 
+.static-text {
+  position: absolute;
+  top: 5%;
+  text-align: center;
+  width: 100%; }
+
+.mdl-dialog {
+  width: 80%;
+  height: 70%; }
+  .mdl-dialog .mdl-dialog__content {
+    height: 80%; }
+  .mdl-dialog .mdl-dialog__actions {
+    height: 20%; }
+
 /*# sourceMappingURL=style.css.map */
